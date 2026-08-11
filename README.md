@@ -26,7 +26,7 @@ Todas las máquinas virtuales se configuraron en VirtualBox bajo el adaptador **
   ![Configuración de Red Ubuntu](00_config_red_ubuntu.png)
 
 * **Configuración de Red en Kali Linux (Atacante):**
-  ![Configuración de Red Kali](images/01_config_red_kali.png)
+  ![Configuración de Red Kali](/01_config_red_kali.png)
 
 * **Configuración de Red en Windows 10 (Víctima):**
   ![Configuración de Red Windows](02_config_red_w10.png)
