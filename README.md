@@ -26,19 +26,19 @@ Todas las máquinas virtuales se configuraron en VirtualBox bajo el adaptador **
   ![Configuración de Red Ubuntu](images/00_config_red_ubuntu.png.png)
 
 * **Configuración de Red en Kali Linux (Atacante):**
-  ![Configuración de Red Kali](01_config_red_kali.png.png)
+  ![Configuración de Red Kali](images/01_config_red_kali.png.png)
 
 * **Configuración de Red en Windows 10 (Víctima):**
-  ![Configuración de Red Windows](02_config_red_w10.png.png)
+  ![Configuración de Red Windows](images/02_config_red_w10.png.png)
 
 ### Verificación de Conectividad y Gestión SSH
 Se comprobó la conectividad bidireccional mediante solicitudes ICMP entre los nodos.
 * **Prueba de Ping (Kali a Windows 10):**
-  ![Conexión Ping](03_ping_conexion.png.png)
+  ![Conexión Ping](images/03_ping_conexion.png.png)
 
 * **Administración Remota (SSH hacia Wazuh Manager):**
   Sesión SSH segura establecida hacia el servidor Ubuntu para administración remota.
-  ![Acceso SSH](04_acceso_ssh.png.png)
+  ![Acceso SSH](images/04_acceso_ssh.png.png)
 
 ---
 
@@ -48,7 +48,7 @@ Se instaló el Agente de Wazuh v4.8.2 en la máquina objetivo (`ESCRITORIO-FVQ72
 
 * **Verificación del Agente en el Dashboard de Wazuh:**
   El agente se registró exitosamente mostrando un estado **Activo** bajo el nodo `node01`.
-  ![Agente Activo en Wazuh](05_agente_activo.png.png)
+  ![Agente Activo en Wazuh](images/05_agente_activo.png.png)
 
 ---
 
@@ -60,7 +60,7 @@ Se ejecutó un escaneo dirigido con Nmap desde Kali Linux para inspeccionar puer
 `nmap -p 3389,445 --script rdp-enum-encryption,smb-enum-shares 192.168.56.105`
 
 * **Resultados:** Se identificó el puerto `3389/tcp` (RDP) como abierto y respondiendo con soporte CredSSP/NLA. El puerto `445/tcp` (SMB) figuraba como filtrado.
-![Escaneo Nmap](06_escaneo_nmap.png.png)
+![Escaneo Nmap](images/06_escaneo_nmap.png.png)
 
 > **Nota SOC:** Los escaneos pasivos de servicios no generan alertas de autenticación en Windows por defecto, a menos que se habilite explícitamente la auditoría en el firewall local o se integre un IDS de red (como Suricata).
 
@@ -71,7 +71,7 @@ Se lanzó un ataque de diccionario dirigido al servicio RDP utilizando Hydra par
 
 `hydra -l usuario_prueba -P /usr/share/wordlists/rockyou.txt rdp://192.168.56.105 -t 4`
 
-![Ataque Hydra](07_ataque_hydra.png.png)
+![Ataque Hydra](images/07_ataque_hydra.png.png)
 
 ---
 
@@ -81,7 +81,7 @@ Durante la ejecución de Hydra, el servidor Wazuh procesó la telemetría del re
 
 * **Panel de Caza de Amenazas en Wazuh:**
   Se capturó un pico masivo (+700 eventos) en el histograma de alertas.
-  ![Histograma de Detección en Wazuh](08_dashboard_eventos.png.png)
+  ![Histograma de Detección en Wazuh](images/08_dashboard_eventos.png.png)
 
 ### Reglas de Correlación Disparadas
 1. **Regla 60122 (Nivel 5):** `Fallo de inicio de sesión - Usuario desconocido o contraseña incorrecta.`
