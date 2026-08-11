@@ -23,7 +23,7 @@ Todas las máquinas virtuales se configuraron en VirtualBox bajo el adaptador **
 
 ### Configuración de Adaptadores en VirtualBox
 * **Configuración de Red en Servidor Ubuntu (SIEM):**
-  ![Configuración de Red Ubuntu](00_config_red_ubuntu.png.png)
+  ![Configuración de Red Ubuntu](images/00_config_red_ubuntu.png.png)
 
 * **Configuración de Red en Kali Linux (Atacante):**
   ![Configuración de Red Kali](01_config_red_kali.png.png)
